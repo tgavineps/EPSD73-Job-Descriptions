@@ -57,12 +57,8 @@
             </div>
 
             <div id="content-benefits" class="space-y-4 hidden">
-                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-4">
-                    <h4 class="font-bold text-gray-900 mb-1 text-xs uppercase tracking-wider text-[#002855]">Salary Range:</h4>
-                    <p id="salary-text" class="text-xs text-gray-600 font-medium"></p>
-                </div>
                 <div>
-                    <h3 class="font-bold text-gray-900 text-sm mb-2 uppercase tracking-wide">District Provided Benefits:</h3>
+                    <h3 class="font-bold text-gray-900 text-sm mb-3 uppercase tracking-wide text-[#002855]">Compensation & District Benefits:</h3>
                     <ul id="benefits-list" class="list-disc pl-5 space-y-1.5 text-gray-600"></ul>
                 </div>
             </div>
@@ -108,55 +104,4 @@
                 
                 document.title = `${data.title} - East Prairie SD 73`;
                 document.getElementById('job-title').innerText = data.title;
-                document.getElementById('job-subtitle').innerText = data.subtitle;
-                document.getElementById('role-description').innerText = data.roleDescription;
-                document.getElementById('role-highlight').innerHTML = data.roleHighlight;
-                document.getElementById('culture-text').innerText = data.cultureText;
-                document.getElementById('salary-text').innerText = data.salaryRange;
-                document.getElementById('apply-link').href = data.applyUrl;
-
-                const mapList = (id, items) => {
-                    document.getElementById(id).innerHTML = items.map(i => `<li>${i}</li>`).join('');
-                };
-                mapList('responsibilities-list', data.responsibilities);
-                mapList('req-list', data.requiredQuals);
-                mapList('pref-list', data.preferredQuals);
-                mapList('benefits-list', data.benefits);
-
-                document.getElementById('match-checkboxes').innerHTML = data.matchQuestions.map((q, idx) => `
-                    <label class="flex items-center gap-2.5 cursor-pointer">
-                        <input type="checkbox" class="match-box rounded text-[#002855] focus:ring-[#002855]" onclick="calcMatch()">
-                        <span>${q}</span>
-                    </label>
-                `).join('');
-            } catch (e) {
-                document.getElementById('job-title').innerText = "Position Spec File Not Found";
-            }
-        }
-
-        function switchSection(sec) {
-            ['role', 'quals', 'benefits', 'culture'].forEach(s => {
-                document.getElementById(`content-${s}`).classList.add('hidden');
-                document.getElementById(`tab-${s}`).className = "py-2.5 px-3 sm:px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-900 focus:outline-none";
-            });
-            document.getElementById(`content-${sec}`).classList.remove('hidden');
-            document.getElementById(`tab-${sec}`).className = "py-2.5 px-3 sm:px-4 border-b-2 border-[#002855] text-[#002855] focus:outline-none";
-        }
-
-        function calcMatch() {
-            const boxes = document.querySelectorAll('.match-box');
-            const checked = Array.from(boxes).filter(b => b.checked).length;
-            const pct = (checked / boxes.length) * 100;
-            document.getElementById('progressBar').style.width = pct + '%';
-            
-            const fb = document.getElementById('match-feedback');
-            if (pct === 0) fb.innerText = "";
-            else if (pct <= 50) fb.innerText = "Basic checklist tracking—Take a look at the qualifications tab criteria!";
-            else if (pct <= 75) fb.innerText = "Great fit! Your experience aligns well with what we're looking for.";
-            else fb.innerText = "Excellent Match! We highly encourage submitting an official application online.";
-        }
-
-        window.onload = loadJob;
-    </script>
-</body>
-</html>
+                document.getElementById
