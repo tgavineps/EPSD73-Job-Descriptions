@@ -116,7 +116,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             
-            <div class="contact-card cursor-help bg-slate-50 border border-slate-100 hover:border-slate-300 rounded-xl p-4 flex justify-between items-start transition-all">
+            <div class="contact-card cursor-help bg-white hover:bg-slate-50 border border-slate-100 hover:border-slate-300 rounded-xl p-4 flex justify-between items-start transition-all duration-200 shadow-sm">
                 <div>
                     <h4 class="font-bold text-gray-800 text-xs">Natalie Braca</h4>
                     <p class="text-[11px] text-gray-500 mt-0.5">Administrative Assistant</p>
@@ -125,7 +125,7 @@
                 <div class="tooltip">Onboarding Paperwork & Benefits Setup.</div>
             </div>
 
-            <div class="contact-card cursor-help bg-slate-50 border border-slate-100 hover:border-slate-300 rounded-xl p-4 flex justify-between items-start transition-all">
+            <div class="contact-card cursor-help bg-white hover:bg-slate-50 border border-slate-100 hover:border-slate-300 rounded-xl p-4 flex justify-between items-start transition-all duration-200 shadow-sm">
                 <div>
                     <h4 class="font-bold text-gray-800 text-xs">Timothy Gavin</h4>
                     <p class="text-[11px] text-gray-500 mt-0.5">Chief School Business Official</p>
@@ -134,9 +134,9 @@
                 <div class="tooltip">Staff Employment Contracts & District Operational Budgets</div>
             </div>
 
-            <div class="contact-card cursor-help bg-slate-50 border border-slate-100 hover:border-slate-300 rounded-xl p-4 flex justify-between items-start transition-all">
+            <div class="contact-card cursor-help bg-white hover:bg-slate-50 border border-slate-100 hover:border-slate-300 rounded-xl p-4 flex justify-between items-start transition-all duration-200 shadow-sm">
                 <div>
-                 <h4 class="font-bold text-gray-800 text-xs">District Administration</h4>
+                    <h4 class="font-bold text-gray-800 text-xs">District Administration</h4>
                     <p class="text-[11px] text-gray-500 mt-0.5">East Prairie School District 73</p>
                 </div>
                 <span class="bg-[#002855] text-white font-bold text-[9px] px-1.5 py-0.5 rounded">District</span>
@@ -144,3 +144,24 @@
             </div>
             
         </div>
+    </div>
+
+    <script>
+        function filterPositions() {
+            const input = document.getElementById('portalSearch').value.toLowerCase();
+            const btns = document.getElementsByClassName('job-btn');
+            
+            for (let i = 0; i < btns.length; i++) {
+                const text = btns[i].innerText.toLowerCase();
+                const card = btns[i].closest('.job-card');
+                if (text.includes(input)) {
+                    btns[i].style.display = "block";
+                    if(card) card.style.display = "flex";
+                } else {
+                    btns[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
