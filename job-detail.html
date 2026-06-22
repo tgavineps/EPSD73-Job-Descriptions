@@ -10,18 +10,16 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen p-4 md:p-8 flex flex-col items-center">
+<body class="bg-gray-50 min-h-screen p-4 md:p-6 flex flex-col items-center">
 
-    <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl px-6 md:px-10 pt-6 pb-6 border-t-8 border-[#002855]">
+    <div class="w-full max-w-4xl text-center mt-2 mb-4">
+        <a href="./index.html" class="inline-block">
+            <img src="./logo.png" alt="East Prairie SD 73 Logo" class="w-64 max-w-full h-auto object-contain md:w-80 mx-auto">
+        </a>
+    </div>
+
+    <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl px-6 md:px-10 pt-8 pb-6 border-t-8 border-[#002855]">
         
-        <header class="text-center mt-4 mb-6">
-            <div class="mx-auto flex items-center justify-center px-4">
-                <a href="./index.html">
-                    <img src="./logo.png" alt="East Prairie SD 73 Logo" class="w-64 max-w-full h-auto object-contain md:w-80">
-                </a>
-            </div>
-        </header>
-
         <div class="text-center mb-6">
             <h1 id="job-title" class="text-2xl font-bold text-gray-900 tracking-tight">Loading Position Specs...</h1>
             <p id="job-subtitle" class="text-xs font-semibold text-[#002855] tracking-wide uppercase mt-1"></p>
@@ -34,7 +32,7 @@
             <button id="tab-culture" onclick="switchSection('culture')" class="py-2.5 px-3 sm:px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-900 focus:outline-none">Culture & Impact</button>
         </div>
 
-        <div class="space-y-6 text-sm text-gray-700 min-h-[250px]">
+        <div class="space-y-6 text-sm text-gray-700 min-h-[160px]">
             
             <div id="content-role" class="space-y-4">
                 <p id="role-description" class="leading-relaxed"></p>
@@ -72,22 +70,22 @@
             </div>
         </div>
 
-        <div class="mt-8 bg-slate-50 p-5 rounded-2xl border border-gray-200">
+        <div class="mt-6 bg-slate-50 p-4 rounded-2xl border border-gray-200">
             <h3 class="text-sm font-bold text-gray-900 tracking-tight mb-1">Position Match Checklist</h3>
             <p class="text-xs text-gray-500 mb-3">See how your skills and experience match up with our team's daily needs:</p>
             <div id="match-checkboxes" class="space-y-2 text-xs font-medium text-gray-700"></div>
             
-            <div class="w-full bg-gray-200 h-2 rounded-full mt-4 overflow-hidden">
+            <div class="w-full bg-gray-200 h-2 rounded-full mt-3 overflow-hidden">
                 <div id="progressBar" class="bg-[#002855] h-full w-0 transition-all duration-300"></div>
             </div>
             <p id="match-feedback" class="text-xs font-bold text-[#002855] mt-2 h-4"></p>
         </div>
 
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="./index.html" class="text-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-xl text-sm transition-all flex-1">
+        <div class="mt-5 pt-2 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
+            <a href="./index.html" class="text-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-6 rounded-xl text-sm transition-all flex-1">
                 ← Back to Portal
             </a>
-            <a href="#" id="apply-link" target="_blank" class="text-center bg-[#002855] hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all shadow-md flex-1">
+            <a href="#" id="apply-link" target="_blank" class="text-center bg-[#002855] hover:bg-gray-800 text-white font-bold py-2.5 px-6 rounded-xl text-sm transition-all shadow-md flex-1">
                 Apply for Position Online
             </a>
         </div>
@@ -95,15 +93,22 @@
 
     <script>
         async function loadJob() {
+            // Extracts target parameter or defaults directly to nurse asset structure
             const params = new URLSearchParams(window.location.search);
-            const job = params.get('job') || 'nurse';
+            let jobKey = params.get('job') || 'nurse';
             
+            // Safety sanitization override mapping to guard clean server calls
+            if (jobKey.trim() === "" || jobKey.includes('.html')) {
+                jobKey = 'nurse';
+            }
+
             try {
-                const res = await fetch(`./${job}.json`);
-                if (!res.ok) throw new Error("File not found");
+                // Query local directory path directly relative to script execution context
+                const res = await fetch('./' + jobKey + '.json', { cache: "no-store" });
+                if (!res.ok) throw new Error("Status: " + res.status);
                 const data = await res.json();
                 
-                document.title = `${data.title} - East Prairie SD 73`;
+                document.title = data.title + " - East Prairie SD 73";
                 document.getElementById('job-title').innerText = data.title;
                 document.getElementById('job-subtitle').innerText = data.subtitle;
                 document.getElementById('role-description').innerText = data.roleDescription;
@@ -112,6 +117,7 @@
                 document.getElementById('apply-link').href = data.applyUrl;
 
                 const mapList = (id, items) => {
+                    if(!items) return;
                     document.getElementById(id).innerHTML = items.map(i => `<li>${i}</li>`).join('');
                 };
                 mapList('responsibilities-list', data.responsibilities);
@@ -120,19 +126,22 @@
                 
                 const combinedBenefits = [
                     `<strong>Salary Range:</strong> ${data.salaryRange}`,
-                    ...data.benefits
+                    ...(data.benefits || [])
                 ];
                 mapList('benefits-list', combinedBenefits);
 
-                document.getElementById('match-checkboxes').innerHTML = data.matchQuestions.map((q, idx) => `
-                    <label class="flex items-center gap-2.5 cursor-pointer">
-                        <input type="checkbox" class="match-box rounded text-[#002855] focus:ring-[#002855]" onclick="calcMatch()">
-                        <span>${q}</span>
-                    </label>
-                `).join('');
+                if(data.matchQuestions) {
+                    document.getElementById('match-checkboxes').innerHTML = data.matchQuestions.map((q, idx) => `
+                        <label class="flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" class="match-box rounded text-[#002855] focus:ring-[#002855]" onclick="calcMatch()">
+                            <span>${q}</span>
+                        </label>
+                    `).join('');
+                }
             } catch (e) {
-                document.getElementById('job-title').innerText = "Data Error: Verify your JSON formatting syntax";
-                document.getElementById('job-subtitle').innerText = e.message;
+                console.error(e);
+                document.getElementById('job-title').innerText = "Position Spec Configuration Exception";
+                document.getElementById('job-subtitle').innerText = "Please confirm that your target file named '" + jobKey + ".json' is uploaded perfectly with strict JSON text syntax guidelines.";
             }
         }
 
