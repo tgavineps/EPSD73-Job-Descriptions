@@ -1,12 +1,12 @@
 {
-  "title": "School Nurse (PreK-8)",
-  "subtitle": "Student Support Services Division",
+  "title": "School Nurse",
+  "subtitle": "PreK-8 Student Support Services",
   "applyUrl": "https://www.applitrack.com/eps73/onlineapp/",
-  "salaryRange": "Salary is competitive and commensurate with experience, structured in accordance with the current collective bargaining agreement metrics.",
-  "roleDescription": "The School Nurse supports student success by minimizing absence due to illness and maximizing over-all health and wellness. This position delivers direct clinical care, ensures state compliance, and acts as a vital bridge between families, staff, and community health resources.",
+  "salaryRange": "Starting salary is $54,500, with final compensation structured in accordance with the current Collective Bargaining Agreement metrics.",
+  "roleDescription": "The School Nurse supports student attendance and success by managing health office operations, maximizing overall building wellness, delivering localized clinical care, and acting as a dependable resource for families, staff, and community health networks.",
   "roleHighlight": "<strong>Specialized Framework Assignment:</strong> This position requires a deep knowledge of the IEP and Section 504 process to effectively assess and support the direct impact of medical factors on student learning configurations.",
   "responsibilities": [
-    "Provide emergency care with appropriate parent notification and medical referral",
+    "Provide first aid, initial triage care, appropriate parent notification, and medical referrals",
     "Administer medications and treatments and perform specialized health care procedures",
     "Assess individual health needs and develop, implement, and collaborate on student care plans",
     "Ensure compliance with State of Illinois mandates for physical examinations, immunizations, and medical reports",
@@ -14,7 +14,7 @@
     "Oversee the District 73 Vision and Hearing Screening Program, handling referrals and timely state reporting",
     "Access community resources and develop partnerships to improve health and wellness access for the D73 community",
     "Monitor emerging public health concerns (e.g., infectious diseases) and advise the district on mitigation plans",
-    "Implement procedures ensuring compliance with the Illinois School Code and District 73 Board Policies",
+    "Assist with main office administrative duties and front desk coverage as needed to support building operations",
     "Performs other related duties as assigned for the purpose of ensuring the efficient and effective functioning of the health office"
   ],
   "requiredQuals": [
@@ -31,16 +31,16 @@
     "Maintains professional boundaries and consistently demonstrates ethical behavior"
   ],
   "benefits": [
-    "Comprehensive District-Paid Medical, Dental, and Vision Insurance Coverages",
-    "Illinois Teachers' Retirement System (TRS) / Professional Pension Participation Framework",
-    "Generous Annual Allotments of Paid Sick, Personal, and Family Leave Days",
-    "Direct Professional Development Subsidies and Specialized Continuing Education Credits"
+    "Competitive District-Subsidized Medical, Dental, and Vision Insurance Plans",
+    "Illinois Municipal Retirement Fund (IMRF) Pension Framework Participation",
+    "Optional Employee Contribution Access to 403(b) and 457 Retirement Accounts",
+    "Fixed Annual Allotment of 15 Sick Days and 3 Personal Days"
   ],
-  "cultureText": "Our health staff operates as an essential pillar of the student services team. We emphasize a collaborative, supportive environment focused on proactive wellness, community resource access, and student safety. Physical demands include regular standing, walking, typing with frequent interruptions, meeting tight deadlines, and occasionally lifting or moving up to 30 pounds.",
+  "cultureText": "This placement operates on a set district academic calendar structure, maintaining consistent, family-friendly scheduling architectures without baseline holiday demands. As the sole medical professional in the building, physical demands include regular standing, walking, typing with frequent interruptions, meeting strict deadlines, and occasionally lifting or moving up to 30 pounds.",
   "matchQuestions": [
     "Do you hold a current RN license and a valid CPR/AED/First Aid certification?",
     "Are you confident managing Illinois state mandates for immunizations, vision/hearing screenings, and state health reports?",
-    "Do you have experience collaborating on IEP/504 teams to assess how medical factors impact student learning?",
-    "Can you work independently in a fast-paced environment with frequent interruptions and strict deadlines?"
+    "Are you comfortable working independently as a building's sole nurse while occasionally assisting with main office workflows?",
+    "Can you work efficiently in an environment with frequent interruptions and strict timelines?"
   ]
 }
