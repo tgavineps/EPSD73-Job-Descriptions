@@ -1,38 +1,46 @@
 {
-  "title": "School Nurse",
-  "subtitle": "PreK-8",
-  "roleHeading": "Your Mission",
-  "roleDescription": "East Prairie School District 73 is seeking a dedicated School Nurse to oversee building-level health programs and medical compliance. This role is essential for managing student wellness, constructing individualized healthcare plans, and ensuring school-wide health and wellness requirements are met daily.",
-  "roleHighlight": "<strong>Core Collaboration:</strong> You will work intimately with our Special Education Team to actively craft and advocate for medical 504 Plans and IEPs for students with medical needs.",
-  "cultureText": "Our PreK-8 model lets you build multi-year relationships with families, watching kids grow from early childhood into resilient young adults. We believe a supportive, highly communicative environment brings out the best in our staff.",
-  "applyUrl": "https://www.applitrack.com/d73/onlineapp/jobpostings/view.asp",
+  "title": "School Nurse (PreK-8)",
+  "subtitle": "Student Support Services Division",
+  "applyUrl": "https://www.applitrack.com/eps73/onlineapp/",
+  "salaryRange": "Salary is competitive and commensurate with experience, structured in accordance with the current collective bargaining agreement metrics.",
+  "roleDescription": "The School Nurse supports student success by minimizing absence due to illness and maximizing over-all health and wellness. This position delivers direct clinical care, ensures state compliance, and acts as a vital bridge between families, staff, and community health resources.",
+  "roleHighlight": "<strong>Specialized Framework Assignment:</strong> This position requires a deep knowledge of the IEP and Section 504 process to effectively assess and support the direct impact of medical factors on student learning configurations.",
   "responsibilities": [
-    "Provide compassionate clinical care for student medical emergencies, daily medications, and wellness checks.",
-    "Design and champion Individualized Healthcare Plans (IHPs) and Emergency Action Plans (EAPs) for students with chronic conditions.",
-    "Maintain regular, clear communication regarding student health needs with parents, teachers, and administration.",
-    "Ensure school-wide safety via precise health screenings, state immunization records, and strict adherence to FERPA and HIPAA standards.",
-    "Adapt flexibly to school needs and assist in the main office or with general student supervision when necessary."
+    "Provide emergency care with appropriate parent notification and medical referral",
+    "Administer medications and treatments and perform specialized health care procedures",
+    "Assess individual health needs and develop, implement, and collaborate on student care plans",
+    "Ensure compliance with State of Illinois mandates for physical examinations, immunizations, and medical reports",
+    "Manage communicable diseases in accordance with Skokie and Illinois Department of Public Health guidelines",
+    "Oversee the District 73 Vision and Hearing Screening Program, handling referrals and timely state reporting",
+    "Access community resources and develop partnerships to improve health and wellness access for the D73 community",
+    "Monitor emerging public health concerns (e.g., infectious diseases) and advise the district on mitigation plans",
+    "Implement procedures ensuring compliance with the Illinois School Code and District 73 Board Policies",
+    "Performs other related duties as assigned for the purpose of ensuring the efficient and effective functioning of the health office"
   ],
   "requiredQuals": [
-    "Minimum of a Bachelor's Degree in Nursing (BSN) from an accredited institution.",
-    "Current license as a Registered Professional Nurse (RN) in the State of Illinois."
+    "Valid Illinois Registered Professional Nurse (RN) License",
+    "Current CPR/AED/First Aid Certificate",
+    "Deep understanding of the needs and requirements of school health offices",
+    "Deep knowledge of the IEP and Section 504 process",
+    "Knowledge in pediatrics, public health, mental health, and education frameworks"
   ],
   "preferredQuals": [
-    "Illinois Professional Educator License (PEL) with a School Nurse Endorsement.",
-    "Previous clinical background in pediatric nursing, public health, or a school-based setting.",
-    "Strong clinical assessment skills and experience navigating IEP/504 processes."
+    "Excellent technology skills, including proficiency with Google Suite",
+    "Strong interpersonal skills with a demonstrated ability to work collaboratively with colleagues, community, and staff",
+    "Demonstrated ability to work independently with minimal supervision while meeting severe time constraints",
+    "Maintains professional boundaries and consistently demonstrates ethical behavior"
   ],
-  "salaryRange": "Starting at $54,500",
   "benefits": [
-    "Comprehensive Medical, Dental & Life Insurance plans",
-    "15 Sick days & 3 Personal days annually",
-    "403(b) / 457(b) retirement options",
-    "Employee Assistance Program (EAP) accessibility"
+    "Comprehensive District-Paid Medical, Dental, and Vision Insurance Coverages",
+    "Illinois Teachers' Retirement System (TRS) / Professional Pension Participation Framework",
+    "Generous Annual Allotments of Paid Sick, Personal, and Family Leave Days",
+    "Direct Professional Development Subsidies and Specialized Continuing Education Credits"
   ],
+  "cultureText": "Our health staff operates as an essential pillar of the student services team. We emphasize a collaborative, supportive environment focused on proactive wellness, community resource access, and student safety. Physical demands include regular standing, walking, typing with frequent interruptions, meeting tight deadlines, and occasionally lifting or moving up to 30 pounds.",
   "matchQuestions": [
-    "I hold an active Illinois RN License.",
-    "I enjoy working in a dynamic environment with kids aged 3 to 14.",
-    "I understand or want to master the IEP/504 special education process.",
-    "I prioritize student confidentiality (HIPAA/FERPA)."
+    "Do you hold a current RN license and a valid CPR/AED/First Aid certification?",
+    "Are you confident managing Illinois state mandates for immunizations, vision/hearing screenings, and state health reports?",
+    "Do you have experience collaborating on IEP/504 teams to assess how medical factors impact student learning?",
+    "Can you work independently in a fast-paced environment with frequent interruptions and strict deadlines?"
   ]
 }
