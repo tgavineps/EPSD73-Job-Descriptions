@@ -8,32 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
-        
-        /* Smooth Hover Tooltip Styles */
-        .contact-card { position: relative; }
-        .contact-card .tooltip {
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-            bottom: 105%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            background-color: #002855;
-            color: #ffffff;
-            text-align: center;
-            border-radius: 8px;
-            padding: 8px;
-            font-size: 11px;
-            line-height: 1.4;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-            z-index: 50;
-        }
-        .contact-card:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen p-4 md:p-8 flex flex-col items-center">
@@ -52,6 +26,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             
+            <!-- Student Support Services Card -->
             <div class="job-card bg-white hover:bg-slate-50 border border-gray-100 hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-200 rounded-2xl p-6 shadow-sm hover:shadow-md flex flex-col justify-between min-h-[180px]">
                 <div>
                     <div class="flex items-center gap-2.5 mb-1">
@@ -64,12 +39,13 @@
                     <a href="./job-detail.html?job=nurse" class="job-btn block text-center bg-[#1e293b] hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wide transition-all shadow-md">
                         School Nurse
                     </a>
-                    <div class="border border-dashed border-gray-200 rounded-xl py-2.5 px-4 text-center text-[10px] font-semibold text-gray-300 uppercase tracking-wider select-none">
-                        + Add Support Role (Placeholder)
-                    </div>
+                    <a href="./job-detail.html?job=paraprofessional" class="job-btn block text-center bg-[#1e293b] hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wide transition-all shadow-md">
+                        Paraprofessional
+                    </a>
                 </div>
             </div>
 
+            <!-- Instructional Roles Card -->
             <div class="job-card bg-white hover:bg-slate-50 border border-gray-100 hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-200 rounded-2xl p-6 shadow-sm hover:shadow-md flex flex-col justify-between min-h-[180px]">
                 <div>
                     <div class="flex items-center gap-2.5 mb-1">
@@ -88,6 +64,7 @@
                 </div>
             </div>
 
+            <!-- District Operations Card -->
             <div class="job-card bg-white hover:bg-slate-50 border border-gray-100 hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-200 rounded-2xl p-6 shadow-sm hover:shadow-md flex flex-col justify-between min-h-[180px]">
                 <div>
                     <div class="flex items-center gap-2.5 mb-1">
@@ -111,39 +88,59 @@
         <hr class="border-gray-100 mb-8">
         <div class="mb-4">
             <h3 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Recruiting, Benefits & District Support Contacts</h3>
-            <p class="text-[11px] text-gray-400">Hover or tap a contact card to see structural assignment tracking</p>
+            <p class="text-[11px] text-gray-400">Hover or tap a card to view specific assignments</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <!-- Interactive Contact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             
-            <div class="contact-card cursor-help bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#002855] hover:-translate-y-0.5 rounded-xl p-4 flex justify-between items-start transition-all duration-200 shadow-sm hover:shadow-md">
-                <div>
-                    <h4 class="font-bold text-gray-800 text-xs">Natalie Braca</h4>
-                    <p class="text-[11px] text-gray-500 mt-0.5">Administrative Assistant</p>
+            <div class="group relative bg-slate-50 hover:bg-slate-900 p-3.5 rounded-xl border border-slate-200 transition-all duration-300 cursor-help overflow-hidden min-h-[72px] flex flex-col justify-center shadow-sm">
+                <div class="group-hover:opacity-0 transition-opacity duration-200">
+                    <div class="flex justify-between items-center mb-0.5">
+                        <span class="font-bold text-gray-900 text-xs">Natalie Braca</span>
+                        <span class="text-[10px] bg-slate-200 text-slate-700 font-bold px-1.5 py-0.5 rounded">Ext. 1215</span>
+                    </div>
+                    <p class="text-[11px] text-gray-500 font-medium">Administrative Assistant</p>
                 </div>
-                <span class="bg-gray-200 text-gray-600 font-bold text-[9px] px-1.5 py-0.5 rounded">Ext. 1215</span>
-                <div class="tooltip">Onboarding Paperwork & Benefits Setup</div>
+                <div class="absolute inset-0 p-3.5 flex flex-col justify-center opacity-0 group-hover:opacity-100 bg-slate-900 text-white transition-opacity duration-200">
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Oversight Areas:</p>
+                    <p class="text-[11px] font-medium text-slate-200 leading-tight">Onboarding Paperwork & Benefits Setup</p>
+                </div>
             </div>
 
-            <div class="contact-card cursor-help bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#002855] hover:-translate-y-0.5 rounded-xl p-4 flex justify-between items-start transition-all duration-200 shadow-sm hover:shadow-md">
-                <div>
-                    <h4 class="font-bold text-gray-800 text-xs">Timothy Gavin</h4>
-                    <p class="text-[11px] text-gray-500 mt-0.5">Chief School Business Official</p>
+            <div class="group relative bg-slate-50 hover:bg-slate-900 p-3.5 rounded-xl border border-slate-200 transition-all duration-300 cursor-help overflow-hidden min-h-[72px] flex flex-col justify-center shadow-sm">
+                <div class="group-hover:opacity-0 transition-opacity duration-200">
+                    <div class="flex justify-between items-center mb-0.5">
+                        <span class="font-bold text-gray-900 text-xs">Timothy Gavin</span>
+                        <span class="text-[10px] bg-slate-200 text-slate-700 font-bold px-1.5 py-0.5 rounded">Ext. 1207</span>
+                    </div>
+                    <p class="text-[11px] text-gray-500 font-medium">Chief School Business Official</p>
                 </div>
-                <span class="bg-gray-200 text-gray-600 font-bold text-[9px] px-1.5 py-0.5 rounded">Ext. 1207</span>
-                <div class="tooltip">Staff Employment Contracts & District Operational Budgets</div>
+                <div class="absolute inset-0 p-3.5 flex flex-col justify-center opacity-0 group-hover:opacity-100 bg-slate-900 text-white transition-opacity duration-200">
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Oversight Areas:</p>
+                    <p class="text-[11px] font-medium text-slate-200 leading-tight">Staff Employment Contracts & Operational Budgets</p>
+                </div>
             </div>
 
-            <div class="contact-card cursor-help bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#002855] hover:-translate-y-0.5 rounded-xl p-4 flex justify-between items-start transition-all duration-200 shadow-sm hover:shadow-md">
-                <div>
-                    <h4 class="font-bold text-gray-800 text-xs">District Administration</h4>
-                    <p class="text-[11px] text-gray-500 mt-0.5">East Prairie School District 73</p>
+            <div class="group relative bg-slate-50 hover:bg-slate-900 p-3.5 rounded-xl border border-slate-200 transition-all duration-300 cursor-help overflow-hidden min-h-[72px] flex flex-col justify-center shadow-sm">
+                <div class="group-hover:opacity-0 transition-opacity duration-200">
+                    <div class="flex justify-between items-center mb-0.5">
+                        <span class="font-bold text-gray-900 text-xs">District Administration</span>
+                        <span class="text-[10px] bg-[#002855] text-white font-bold px-1.5 py-0.5 rounded">District</span>
+                    </div>
+                    <p class="text-[11px] text-gray-500 font-medium">East Prairie School District 73</p>
                 </div>
-                <span class="bg-[#002855] text-white font-bold text-[9px] px-1.5 py-0.5 rounded">District</span>
-                <div class="tooltip">Applicant Screening and Interviewing & Hiring Recommendations</div>
+                <div class="absolute inset-0 p-3.5 flex flex-col justify-center opacity-0 group-hover:opacity-100 bg-slate-900 text-white transition-opacity duration-200">
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Oversight Areas:</p>
+                    <p class="text-[11px] font-medium text-slate-200 leading-tight">Applicant Screening & Interview Recommendations</p>
+                </div>
             </div>
-            
+
         </div>
+
+        <footer class="mt-8 pt-6 border-t border-gray-200 text-center text-xs text-gray-400 font-medium">
+            For questions, please contact hr@eps73.net.
+        </footer>
     </div>
 
     <script>
