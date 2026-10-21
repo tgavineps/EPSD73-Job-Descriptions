@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <!-- District Operations & Administration Card -->
+            <!-- District Operations Card -->
             <div class="job-card bg-white hover:bg-slate-50 border border-gray-100 hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-200 rounded-2xl p-6 shadow-sm hover:shadow-md flex flex-col justify-between min-h-[180px]">
                 <div>
                     <div class="flex items-center gap-2.5 mb-1">
@@ -141,16 +141,3 @@
         <footer class="mt-8 pt-6 border-t border-gray-200 text-center text-xs text-gray-400 font-medium">
             For questions, please contact hr@eps73.net.
         </footer>
-    </div>
-
-    <script>
-        function filterPositions() {
-            const input = document.getElementById('portalSearch').value.toLowerCase();
-            const btns = document.getElementsByClassName('job-btn');
-            
-            for (let i = 0; i < btns.length; i++) {
-                const text = btns[i].innerText.toLowerCase();
-                const card = btns[i].closest('.job-card');
-                if (text.includes(input)) {
-                    btns[i].style.display = "block";
-                    if(card) card.style.display = "flex";
