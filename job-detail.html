@@ -83,6 +83,7 @@
                 <div id="content-role" class="tab-content-block space-y-5">
                     <h2 class="hidden print-section-header">1. Position Overview & Essential Responsibilities</h2>
                     <p id="role-description" class="leading-relaxed"></p>
+                    <div id="role-highlight" class="bg-blue-50 p-4 rounded-xl border-l-4 border-[#002855] text-slate-800 text-xs font-medium"></div>
                     <div>
                         <h3 class="font-bold text-gray-900 text-sm mb-2 uppercase tracking-wide">Key Performance Areas:</h3>
                         <ul id="responsibilities-list" class="list-disc pl-5 space-y-1.5 text-gray-600"></ul>
@@ -91,5 +92,147 @@
 
                 <!-- Section 2: Qualifications -->
                 <div id="content-quals" class="tab-content-block space-y-5 hidden">
-                    <h
- 
+                    <h2 class="hidden print-section-header">2. Qualifications & Licensure Requirements</h2>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-2 uppercase tracking-wide text-[#002855]">Required Licensure & Metrics:</h3>
+                        <ul id="req-list" class="list-disc pl-5 space-y-1.5 text-gray-600"></ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-2 uppercase tracking-wide">Preferred Professional Attributes:</h3>
+                        <ul id="pref-list" class="list-disc pl-5 space-y-1.5 text-gray-600"></ul>
+                    </div>
+                </div>
+
+                <!-- Section 3: Salary & Benefits -->
+                <div id="content-benefits" class="tab-content-block space-y-5 hidden">
+                    <h2 class="hidden print-section-header">3. Compensation & District Benefits</h2>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-2 uppercase tracking-wide text-[#002855]">Salary:</h3>
+                        <p id="salary-text-display" class="text-sm text-gray-600 leading-relaxed pl-1"></p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-2 uppercase tracking-wide">Benefits:</h3>
+                        <ul id="benefits-list" class="list-disc pl-5 space-y-1.5 text-gray-600"></ul>
+                    </div>
+                </div>
+
+                <!-- Section 4: Working Environment -->
+                <div id="content-culture" class="tab-content-block space-y-5 hidden">
+                    <h2 class="hidden print-section-header">4. Physical Demands & Work Environment</h2>
+                    <p id="culture-text" class="leading-relaxed"></p>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-2 uppercase tracking-wide">Schedule & Environment:</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">This placement operates on a set district academic calendar structure, maintaining consistent, family-friendly scheduling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Position Match Checklist Widget (Hidden when printing) -->
+        <div class="checklist-widget mt-8 bg-slate-50 p-4 rounded-2xl border border-gray-200">
+            <h3 class="text-sm font-bold text-gray-900 tracking-tight mb-1">Position Match Checklist</h3>
+            <p class="text-xs text-gray-500 mb-3">See how your skills and experience match up with our team's daily needs:</p>
+            <div id="match-checkboxes" class="space-y-2 text-xs font-medium text-gray-700"></div>
+            
+            <div class="w-full bg-gray-200 h-2 rounded-full mt-3 overflow-hidden">
+                <div id="progressBar" class="bg-[#002855] h-full w-0 transition-all duration-300"></div>
+            </div>
+            <p id="match-feedback" class="text-xs font-bold text-[#002855] mt-2 h-4"></p>
+        </div>
+
+        <!-- Action Controls (Hidden when printing) -->
+        <div class="no-print mt-5 pt-2 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
+            <a href="./index.html" class="text-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition-all flex-1">
+                ← Back to Portal
+            </a>
+            <button onclick="window.print()" class="text-center bg-slate-700 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition-all shadow-md flex-1">
+                🖨️ Print Full Job Description
+            </button>
+            <a href="#" id="apply-link" target="_blank" class="text-center bg-[#002855] hover:bg-gray-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition-all shadow-md flex-1">
+                Apply for Position Online
+            </a>
+        </div>
+    </div>
+
+    <script>
+        async function loadJob() {
+            const params = new URLSearchParams(window.location.search);
+            let jobKey = params.get('job') || 'nurse';
+            
+            if (jobKey.trim() === "" || jobKey.includes('.html')) {
+                jobKey = 'nurse';
+            }
+
+            try {
+                const res = await fetch('./' + jobKey + '.json', { cache: "no-store" });
+                if (!res.ok) throw new Error("Status: " + res.status);
+                const data = await res.json();
+                
+                document.title = data.title + " - East Prairie SD 73";
+                document.getElementById('job-title').innerText = data.title;
+                document.getElementById('job-subtitle').innerText = data.subtitle;
+                document.getElementById('role-description').innerText = data.roleDescription;
+                
+                // Safety check so missing roleHighlight won't break JSON execution
+                const highlightEl = document.getElementById('role-highlight');
+                if (data.roleHighlight) {
+                    highlightEl.innerHTML = data.roleHighlight;
+                    highlightEl.style.display = 'block';
+                } else {
+                    highlightEl.style.display = 'none';
+                }
+
+                document.getElementById('culture-text').innerText = data.cultureText;
+                document.getElementById('salary-text-display').innerText = data.salaryRange;
+                document.getElementById('apply-link').href = data.applyUrl;
+
+                const mapList = (id, items) => {
+                    if(!items) return;
+                    document.getElementById(id).innerHTML = items.map(i => `<li>${i}</li>`).join('');
+                };
+                mapList('responsibilities-list', data.responsibilities);
+                mapList('req-list', data.requiredQuals);
+                mapList('pref-list', data.preferredQuals);
+                mapList('benefits-list', data.benefits);
+
+                if(data.matchQuestions) {
+                    document.getElementById('match-checkboxes').innerHTML = data.matchQuestions.map((q, idx) => `
+                        <label class="flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" class="match-box rounded text-[#002855] focus:ring-[#002855]" onclick="calcMatch()">
+                            <span>${q}</span>
+                        </label>
+                    `).join('');
+                }
+            } catch (e) {
+                console.error(e);
+                document.getElementById('job-title').innerText = "Position Spec Configuration Exception";
+                document.getElementById('job-subtitle').innerText = "Error loading target JSON parameters data framework.";
+            }
+        }
+
+        function switchSection(sec) {
+            ['role', 'quals', 'benefits', 'culture'].forEach(s => {
+                document.getElementById(`content-${s}`).classList.add('hidden');
+                document.getElementById(`tab-${s}`).className = "py-2.5 px-3 sm:px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-900 focus:outline-none";
+            });
+            document.getElementById(`content-${sec}`).classList.remove('hidden');
+            document.getElementById(`tab-${sec}`).className = "py-2.5 px-3 sm:px-4 border-b-2 border-[#002855] text-[#002855] focus:outline-none";
+        }
+
+        function calcMatch() {
+            const boxes = document.querySelectorAll('.match-box');
+            const checked = Array.from(boxes).filter(b => b.checked).length;
+            const pct = (checked / boxes.length) * 100;
+            document.getElementById('progressBar').style.width = pct + '%';
+            
+            const fb = document.getElementById('match-feedback');
+            if (pct === 0) fb.innerText = "";
+            else if (pct <= 50) fb.innerText = "Basic checklist tracking—Take a look at the qualifications tab criteria!";
+            else if (pct <= 75) fb.innerText = "Great fit! Your experience aligns well with what we're looking for.";
+            else fb.innerText = "Excellent Match! We highly encourage submitting an official application online.";
+        }
+
+        window.onload = loadJob;
+    </script>
+</body>
+</html>
