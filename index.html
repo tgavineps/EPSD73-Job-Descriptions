@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <!-- District Operations Card -->
+            <!-- District Operations & Administration Card -->
             <div class="job-card bg-white hover:bg-slate-50 border border-gray-100 hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-200 rounded-2xl p-6 shadow-sm hover:shadow-md flex flex-col justify-between min-h-[180px]">
                 <div>
                     <div class="flex items-center gap-2.5 mb-1">
@@ -74,9 +74,9 @@
                     <p class="text-xs text-gray-400 font-medium mb-6">Operations & Office Careers</p>
                 </div>
                 <div class="space-y-2 mt-auto">
-                    <div class="border border-dashed border-gray-200 rounded-xl py-2.5 px-4 text-center text-[10px] font-semibold text-gray-300 uppercase tracking-wider select-none">
-                        + Add Operational Role (Placeholder)
-                    </div>
+                    <a href="./job-detail.html?job=principal" class="job-btn block text-center bg-[#1e293b] hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wide transition-all shadow-md">
+                        Principal
+                    </a>
                     <div class="border border-dashed border-gray-200 rounded-xl py-2.5 px-4 text-center text-[10px] font-semibold text-gray-300 uppercase tracking-wider select-none">
                         + Add Operational Role (Placeholder)
                     </div>
@@ -91,7 +91,7 @@
             <p class="text-[11px] text-gray-400">Hover or tap a card to view specific assignments</p>
         </div>
 
-        <!-- Interactive Contact Cards -->
+        <!-- Interactive Contact Cards with Dark Slide-Up Overlay -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             
             <div class="group relative bg-slate-50 hover:bg-slate-900 p-3.5 rounded-xl border border-slate-200 transition-all duration-300 cursor-help overflow-hidden min-h-[72px] flex flex-col justify-center shadow-sm">
@@ -154,11 +154,3 @@
                 if (text.includes(input)) {
                     btns[i].style.display = "block";
                     if(card) card.style.display = "flex";
-                } else {
-                    btns[i].style.display = "none";
-                }
-            }
-        }
-    </script>
-</body>
-</html>
